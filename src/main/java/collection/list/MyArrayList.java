@@ -38,15 +38,33 @@ public class MyArrayList<T> {
      *   4. 마지막 데이터는 지운다.
      * */
     public void remove(T removeObject) {
-        for (int i = 0; i < this.data.length; i++) {
-            isEqualsRemove(removeObject, i);
+        int resultIndex = isEquals(removeObject);
+        if (resultIndex != -1) {
+            realRemove(resultIndex);
         }
     }
 
     public void remove(int index) {
         Objects.checkIndex(index, size());
+        realRemove(index);
+    }
+
+    public boolean contains(T findObject) {
+        return isEquals(findObject) == -1 ? false : true;
+    }
+
+    private void realRemove(int index) {
         this.data[index] = null;
         dataShift(index);
+    }
+
+    private int isEquals(T targetObject) {
+        for (int i = 0; i < this.data.length; i++) {
+            if (targetObject.equals(this.data[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -74,14 +92,5 @@ public class MyArrayList<T> {
             System.arraycopy(data, 0, temp, 0, data.length);
             data = temp;
         }
-    }
-
-    public boolean contains(T findObject) {
-        for (T obj : this.data) {
-            if (findObject.equals(obj)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
