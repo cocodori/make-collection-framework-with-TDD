@@ -22,6 +22,6 @@ public class MyArrayList<T> {
     }
 
     public boolean isEmpty() {
-        return false;
+        return true;
     }
 }
