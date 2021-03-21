@@ -5,12 +5,15 @@ public class MyArrayList<T> {
     private int size;
 
     public MyArrayList() {
+        this.data = (T[])new Object[10];
+        this.size = 0;
     }
 
     public void add(T a) {
+        this.data[size++] = a;
     }
 
     public int size() {
-        return 3;
+        return this.size;
     }
 }
