@@ -38,6 +38,10 @@ public class MyArrayList<T> {
         removeObject(removeObject);
     }
 
+
+    public void remove(int index) {
+    }
+
     private void removeObject(T removeObject) {
         for (int i = 0; i < this.data.length; i++) {
             realRemove(removeObject, i);

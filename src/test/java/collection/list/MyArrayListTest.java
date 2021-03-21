@@ -71,4 +71,17 @@ public class MyArrayListTest {
 
         System.out.println(myArrayList);
     }
+
+    @Test
+    void testRemoveWithIndex() {
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+
+        myArrayList.add("a");
+        myArrayList.add("b");
+        myArrayList.add("c");
+
+        myArrayList.remove(2);
+
+        assertNull(myArrayList.get(2d));
+    }
 }
