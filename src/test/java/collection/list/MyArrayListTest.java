@@ -2,7 +2,9 @@ package collection.list;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MyArrayListTest {
     @Test
@@ -27,5 +29,19 @@ public class MyArrayListTest {
         assertEquals("a", arrayList.get(0));
         assertEquals("b", arrayList.get(1));
         assertEquals("c", arrayList.get(2));
+
+        //만약 List 크기를 초과하는 인덱스를 호출한다면?
+        try {
+            arrayList.get(1111);
+            fail("?");
+        } catch (Exception e) {
+        }
+    }
+
+    @Test
+    void testIsEmpty() {
+        MyArrayList myArrayList = new MyArrayList();
+
+        assertTrue(myArrayList.isEmpty());
     }
 }

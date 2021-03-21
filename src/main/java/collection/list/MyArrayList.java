@@ -20,4 +20,8 @@ public class MyArrayList<T> {
     public T get(int index) {
         return this.data[index];
     }
+
+    public boolean isEmpty() {
+        return false;
+    }
 }
