@@ -25,5 +25,7 @@ public class MyArrayListTest {
         arrayList.add("c");
 
         assertEquals("a", arrayList.get(0));
+        assertEquals("b", arrayList.get(1));
+        assertEquals("c", arrayList.get(2));
     }
 }

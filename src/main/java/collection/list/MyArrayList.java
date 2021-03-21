@@ -18,6 +18,6 @@ public class MyArrayList<T> {
     }
 
     public T get(int index) {
-        return null;
+        return this.data[index];
     }
 }
