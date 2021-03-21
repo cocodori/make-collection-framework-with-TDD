@@ -45,24 +45,30 @@ public class MyArrayListTest {
         assertTrue(myArrayList.isEmpty());
     }
 
+
+    /*
+    *   remove() 고려 사항
+    *   데이터 삭제할 때마다 size도 같이 -1 되어야 함.
+    *   0번째 인덱스를 지웠다면 1번 인덱스가 0번 인덱스 자리로 이동해야 함
+    * */
     @Test
-    void testRemove() {
+    void testRemoveWithObject() {
         MyArrayList<String> myArrayList = new MyArrayList<>();
 
         myArrayList.add("a");
         myArrayList.add("b");
         myArrayList.add("c");
-
-        assertEquals(3, myArrayList.size());
-
-        myArrayList.remove("c");
-
-        assertEquals(2, myArrayList.size());
+        myArrayList.add("d");
+        myArrayList.add("e");
+        myArrayList.add("f");
+        myArrayList.add("g");
 
         myArrayList.remove("a");
+        myArrayList.remove("d");
+        myArrayList.remove("f");
 
-        assertEquals(1, myArrayList.size());
+        assertEquals(4, myArrayList.size());
 
-        assertEquals("b", myArrayList.get(0));
+        System.out.println(myArrayList);
     }
 }
