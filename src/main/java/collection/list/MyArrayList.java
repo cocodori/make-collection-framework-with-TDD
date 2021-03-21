@@ -16,4 +16,8 @@ public class MyArrayList<T> {
     public int size() {
         return this.size;
     }
+
+    public T get(int index) {
+        return null;
+    }
 }

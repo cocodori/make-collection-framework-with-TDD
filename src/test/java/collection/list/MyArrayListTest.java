@@ -15,4 +15,15 @@ public class MyArrayListTest {
 
         assertEquals(3, arrayList.size());
     }
+
+    @Test
+    void testGet() {
+        MyArrayList<String> arrayList = new MyArrayList<>();
+
+        arrayList.add("a");
+        arrayList.add("b");
+        arrayList.add("c");
+
+        assertEquals("a", arrayList.get(0));
+    }
 }
