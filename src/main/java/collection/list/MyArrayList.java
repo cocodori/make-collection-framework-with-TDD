@@ -36,37 +36,27 @@ public class MyArrayList<T> {
      *   4. 마지막 데이터는 지운다.
      * */
     public void remove(T removeObject) {
-        removeObject(removeObject);
+        for (int i = 0; i < this.data.length; i++) {
+            isEqualsRemove(removeObject, i);
+        }
     }
 
 
     public void remove(int index) {
-        checkIndex(index);
-    }
-
-    private void checkIndex(int index) {
         Objects.checkIndex(index, size());
         this.data[index] = null;
-        size--;
         dataShift(index);
     }
 
-    private void removeObject(T removeObject) {
-        for (int i = 0; i < this.data.length; i++) {
-            realRemove(removeObject, i);
-        }
-    }
-
-    private void realRemove(T removeObject, int i) {
+    private void isEqualsRemove(T removeObject, int i) {
         if (removeObject.equals(this.data[i])) {
             this.data[i] = null;
-            size--;
             dataShift(i);
         }
     }
 
     private void dataShift(int i) {
-        if (i != size) {
+        if (i != size--) {
             System.arraycopy(data, i +1, data, i, size());
             data[size] = null;
         }

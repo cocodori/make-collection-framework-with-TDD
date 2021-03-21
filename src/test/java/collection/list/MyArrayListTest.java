@@ -84,6 +84,5 @@ public class MyArrayListTest {
 
         assertEquals(2, myArrayList.size());
         assertEquals("c", myArrayList.get(1));
-
     }
 }
