@@ -62,6 +62,5 @@ public class MyArrayListTest {
         myArrayList.delete("a");
 
         assertEquals(1, myArrayList.size());
-
     }
 }

@@ -26,6 +26,11 @@ public class MyArrayList<T> {
     }
 
     public void delete(T c) {
-
+        for (int i = 0; i < this.data.length; i++) {
+            if (c.equals(this.data[i])) {
+                this.data[i] = null;
+                size--;
+            }
+        }
     }
 }
