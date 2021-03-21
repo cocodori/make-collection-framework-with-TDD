@@ -13,7 +13,16 @@ public class MyArrayList<T> {
     }
 
     public void add(T a) {
+        checkCapacity();
         this.data[size++] = a;
+    }
+
+    private void checkCapacity() {
+        if (data.length == size()) {
+            T[] temp = (T[]) new Object[data.length * 2];
+            System.arraycopy(data, 0, temp, 0, data.length);
+            data = temp;
+        }
     }
 
     public int size() {
