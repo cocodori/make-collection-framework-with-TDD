@@ -77,6 +77,11 @@ public class MyArrayList<T> {
     }
 
     public boolean contains(T findObject) {
+        for (T obj : this.data) {
+            if (findObject.equals(obj)) {
+                return true;
+            }
+        }
         return false;
     }
 }
