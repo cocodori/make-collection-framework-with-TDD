@@ -96,4 +96,16 @@ public class MyArrayListTest {
 
         assertEquals(100, list.size());
     }
+
+    @Test
+    void testContains() {
+        MyArrayList<String> list = new MyArrayList<>();
+
+        list.add("a");
+        list.add("b");
+        list.add("c");
+
+        assertTrue(list.contains("b"));
+
+    }
 }

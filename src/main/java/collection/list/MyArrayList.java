@@ -6,23 +6,16 @@ import java.util.Objects;
 public class MyArrayList<T> {
     private T[] data;
     private int size;
+    private final int DEFAULT_CAPACITY = 10;
 
     public MyArrayList() {
-        this.data = (T[])new Object[10];
+        this.data = (T[])new Object[DEFAULT_CAPACITY];
         this.size = 0;
     }
 
     public void add(T a) {
         checkCapacity();
         this.data[size++] = a;
-    }
-
-    private void checkCapacity() {
-        if (data.length == size()) {
-            T[] temp = (T[]) new Object[data.length * 2];
-            System.arraycopy(data, 0, temp, 0, data.length);
-            data = temp;
-        }
     }
 
     public int size() {
@@ -50,11 +43,15 @@ public class MyArrayList<T> {
         }
     }
 
-
     public void remove(int index) {
         Objects.checkIndex(index, size());
         this.data[index] = null;
         dataShift(index);
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayList = [size = " + size() + ", data = " + Arrays.toString(this.data) + "]";
     }
 
     private void isEqualsRemove(T removeObject, int i) {
@@ -71,9 +68,15 @@ public class MyArrayList<T> {
         }
     }
 
-    @Override
-    public String toString() {
-        return "MyArrayList = [size = " + size() + ", data = " + Arrays.toString(this.data) + "]";
+    private void checkCapacity() {
+        if (data.length == size()) {
+            T[] temp = (T[]) new Object[data.length * 2];
+            System.arraycopy(data, 0, temp, 0, data.length);
+            data = temp;
+        }
     }
 
+    public boolean contains(T findObject) {
+        return false;
+    }
 }
