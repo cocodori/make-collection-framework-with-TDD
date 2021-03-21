@@ -25,7 +25,7 @@ public class MyArrayList<T> {
         return this.size == 0;
     }
 
-    public void delete(T c) {
+    public void remove(T c) {
         for (int i = 0; i < this.data.length; i++) {
             if (c.equals(this.data[i])) {
                 this.data[i] = null;

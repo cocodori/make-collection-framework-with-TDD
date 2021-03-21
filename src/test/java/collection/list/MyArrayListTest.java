@@ -46,7 +46,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    void testDelete() {
+    void testRemove() {
         MyArrayList<String> myArrayList = new MyArrayList<>();
 
         myArrayList.add("a");
@@ -55,12 +55,14 @@ public class MyArrayListTest {
 
         assertEquals(3, myArrayList.size());
 
-        myArrayList.delete("c");
+        myArrayList.remove("c");
 
         assertEquals(2, myArrayList.size());
 
-        myArrayList.delete("a");
+        myArrayList.remove("a");
 
         assertEquals(1, myArrayList.size());
+
+        assertEquals("b", myArrayList.get(0));
     }
 }
