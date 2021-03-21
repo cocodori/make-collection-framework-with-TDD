@@ -1,6 +1,7 @@
 package collection.list;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyArrayList<T> {
     private T[] data;
@@ -40,6 +41,14 @@ public class MyArrayList<T> {
 
 
     public void remove(int index) {
+        checkIndex(index);
+    }
+
+    private void checkIndex(int index) {
+        Objects.checkIndex(index, size());
+        this.data[index] = null;
+        size--;
+        dataShift(index);
     }
 
     private void removeObject(T removeObject) {

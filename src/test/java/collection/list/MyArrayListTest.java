@@ -80,8 +80,10 @@ public class MyArrayListTest {
         myArrayList.add("b");
         myArrayList.add("c");
 
-        myArrayList.remove(2);
+        myArrayList.remove(1);
 
-        assertNull(myArrayList.get(2d));
+        assertEquals(2, myArrayList.size());
+        assertEquals("c", myArrayList.get(1));
+
     }
 }
