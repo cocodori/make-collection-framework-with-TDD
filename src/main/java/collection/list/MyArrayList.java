@@ -24,4 +24,8 @@ public class MyArrayList<T> {
     public boolean isEmpty() {
         return this.size == 0;
     }
+
+    public void delete(T c) {
+
+    }
 }

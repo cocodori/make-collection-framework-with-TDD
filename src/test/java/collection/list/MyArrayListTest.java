@@ -44,4 +44,24 @@ public class MyArrayListTest {
 
         assertTrue(myArrayList.isEmpty());
     }
+
+    @Test
+    void testDelete() {
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+
+        myArrayList.add("a");
+        myArrayList.add("b");
+        myArrayList.add("c");
+
+        assertEquals(3, myArrayList.size());
+
+        myArrayList.delete("c");
+
+        assertEquals(2, myArrayList.size());
+
+        myArrayList.delete("a");
+
+        assertEquals(1, myArrayList.size());
+
+    }
 }
