@@ -85,4 +85,15 @@ public class MyArrayListTest {
         assertEquals(2, myArrayList.size());
         assertEquals("c", myArrayList.get(1));
     }
+
+    @Test
+    void testOverCapacity() {
+        MyArrayList<String> list = new MyArrayList<>();
+
+        for (int i = 0; i < 100; i++) {
+            list.add(i+"");
+        }
+
+        assertEquals(100, list.size());
+    }
 }
