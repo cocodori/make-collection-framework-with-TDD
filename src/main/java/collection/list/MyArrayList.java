@@ -72,13 +72,6 @@ public class MyArrayList<T> {
         return "MyArrayList = [size = " + size() + ", data = " + Arrays.toString(this.data) + "]";
     }
 
-    private void isEqualsRemove(T removeObject, int i) {
-        if (removeObject.equals(this.data[i])) {
-            this.data[i] = null;
-            dataShift(i);
-        }
-    }
-
     private void dataShift(int i) {
         if (i != size--) {
             System.arraycopy(data, i +1, data, i, size());
@@ -92,5 +85,8 @@ public class MyArrayList<T> {
             System.arraycopy(data, 0, temp, 0, data.length);
             data = temp;
         }
+    }
+
+    public void add(int index, T data) {
     }
 }

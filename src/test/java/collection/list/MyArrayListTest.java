@@ -19,6 +19,22 @@ public class MyArrayListTest {
     }
 
     @Test
+    void testAddToSpecifiedPosition() {
+        MyArrayList<String> arrayList = new MyArrayList<>();
+
+        arrayList.add("a");
+        arrayList.add("b");
+        arrayList.add("c");
+        arrayList.add("d");
+
+        assertEquals("a", arrayList.get(0));
+
+        arrayList.add(0, "z");
+
+        assertEquals("z", arrayList.get(0));
+    }
+
+    @Test
     void testGet() {
         MyArrayList<String> arrayList = new MyArrayList<>();
 
