@@ -45,7 +45,7 @@ public class MyArrayList<T> {
     }
 
     public void remove(int index) {
-        Objects.checkIndex(index, size());
+        Objects.checkIndex(index, this.data.length);
         realRemove(index);
     }
 
@@ -87,6 +87,27 @@ public class MyArrayList<T> {
         }
     }
 
+    /*
+    *   1. 유효한 index인지
+    *   2. 마지막 인덱스라면 그냥 추가
+    *   3. 아니라면 뒤로 한 칸씩 미루고 그 자리에 추가
+    * */
     public void add(int index, T data) {
+        Objects.checkIndex(index, this.data.length);
+
+        if (index == size) {
+            this.data[index] = data;
+            size++;
+            return;
+        }
+
+        shift(index);
+
+        this.data[index] = data;
+        size++;
+    }
+
+    private void shift(int index) {
+        System.arraycopy(this.data, index, this.data, index+1, this.size);
     }
 }

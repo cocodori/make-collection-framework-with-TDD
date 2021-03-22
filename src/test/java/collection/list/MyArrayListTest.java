@@ -29,9 +29,18 @@ public class MyArrayListTest {
 
         assertEquals("a", arrayList.get(0));
 
+        arrayList.add(4,"e");
+
+        assertEquals("e", arrayList.get(4));
+
         arrayList.add(0, "z");
 
         assertEquals("z", arrayList.get(0));
+
+        assertEquals(6, arrayList.size());
+
+        System.out.println(arrayList);
+
     }
 
     @Test
