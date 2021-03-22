@@ -39,7 +39,11 @@ public class MyArrayListTest {
 
         assertEquals(6, arrayList.size());
 
+        arrayList.add(7, "xxx");
+
         System.out.println(arrayList);
+
+
 
     }
 
@@ -107,8 +111,12 @@ public class MyArrayListTest {
 
         myArrayList.remove(1);
 
+        System.out.println(myArrayList);
+
+
         assertEquals(2, myArrayList.size());
         assertEquals("c", myArrayList.get(1));
+
     }
 
     @Test

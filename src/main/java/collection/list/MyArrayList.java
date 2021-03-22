@@ -13,9 +13,31 @@ public class MyArrayList<T> {
         this.size = 0;
     }
 
+    @Override
+    public String toString() {
+        return "MyArrayList = [size = " + size() + ", data = " + Arrays.toString(this.data) + "]";
+    }
+
     public void add(T a) {
         checkCapacity();
         this.data[size++] = a;
+    }
+
+    /*
+     *   1. 유효한 index인지
+     *   2. 마지막 인덱스라면 그냥 추가
+     *   3. 아니라면 뒤로 한 칸씩 미루고 그 자리에 추가
+     * */
+    public void add(int index, T data) {
+        Objects.checkIndex(index, this.data.length);
+
+        if (index >= size++) {
+            this.data[index] = data;
+            return;
+        }
+
+        shift(index, index+1);
+        this.data[index] = data;
     }
 
     public int size() {
@@ -55,7 +77,11 @@ public class MyArrayList<T> {
 
     private void realRemove(int index) {
         this.data[index] = null;
-        dataShift(index);
+
+        if (index != this.size) {
+            shift(index + 1, index);
+            data[size--] = null;
+        }
     }
 
     private int isEquals(T targetObject) {
@@ -67,18 +93,6 @@ public class MyArrayList<T> {
         return -1;
     }
 
-    @Override
-    public String toString() {
-        return "MyArrayList = [size = " + size() + ", data = " + Arrays.toString(this.data) + "]";
-    }
-
-    private void dataShift(int i) {
-        if (i != size--) {
-            System.arraycopy(data, i +1, data, i, size());
-            data[size] = null;
-        }
-    }
-
     private void checkCapacity() {
         if (data.length == size()) {
             T[] temp = (T[]) new Object[data.length * 2];
@@ -87,27 +101,7 @@ public class MyArrayList<T> {
         }
     }
 
-    /*
-    *   1. 유효한 index인지
-    *   2. 마지막 인덱스라면 그냥 추가
-    *   3. 아니라면 뒤로 한 칸씩 미루고 그 자리에 추가
-    * */
-    public void add(int index, T data) {
-        Objects.checkIndex(index, this.data.length);
-
-        if (index == size) {
-            this.data[index] = data;
-            size++;
-            return;
-        }
-
-        shift(index);
-
-        this.data[index] = data;
-        size++;
-    }
-
-    private void shift(int index) {
-        System.arraycopy(this.data, index, this.data, index+1, this.size);
+    private void shift(int from, int to) {
+        System.arraycopy(this.data, from, this.data, to, this.size);
     }
 }
