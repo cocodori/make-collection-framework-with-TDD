@@ -104,4 +104,7 @@ public class MyArrayList<T> {
     private void shift(int from, int to) {
         System.arraycopy(this.data, from, this.data, to, this.size);
     }
+
+    public void clear() {
+    }
 }

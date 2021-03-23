@@ -40,11 +40,6 @@ public class MyArrayListTest {
         assertEquals(6, arrayList.size());
 
         arrayList.add(7, "xxx");
-
-        System.out.println(arrayList);
-
-
-
     }
 
     @Test
@@ -139,6 +134,22 @@ public class MyArrayListTest {
         list.add("c");
 
         assertTrue(list.contains("b"));
+    }
 
+    @Test
+    void testClear() {
+        MyArrayList<String> list = new MyArrayList<>();
+
+        list.add("a");
+        list.add("a");
+        list.add("a");
+        list.add("a");
+        list.add("a");
+
+        assertEquals(5, list.size());
+
+        list.clear();
+
+        assertTrue(list.isEmpty());
     }
 }
