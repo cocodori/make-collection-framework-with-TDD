@@ -106,5 +106,7 @@ public class MyArrayList<T> {
     }
 
     public void clear() {
+        this.data = (T[]) new Object[DEFAULT_CAPACITY];
+        this.size = 0;
     }
 }
