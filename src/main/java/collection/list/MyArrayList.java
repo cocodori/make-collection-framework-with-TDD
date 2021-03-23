@@ -75,6 +75,11 @@ public class MyArrayList<T> {
         return isEquals(findObject) == -1 ? false : true;
     }
 
+    public void clear() {
+        this.data = (T[]) new Object[DEFAULT_CAPACITY];
+        this.size = 0;
+    }
+
     private void realRemove(int index) {
         this.data[index] = null;
 
@@ -105,8 +110,7 @@ public class MyArrayList<T> {
         System.arraycopy(this.data, from, this.data, to, this.size);
     }
 
-    public void clear() {
-        this.data = (T[]) new Object[DEFAULT_CAPACITY];
-        this.size = 0;
+    public int indexOf(T xxx) {
+        return 0;
     }
 }

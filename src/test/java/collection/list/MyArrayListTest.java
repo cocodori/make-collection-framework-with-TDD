@@ -152,4 +152,19 @@ public class MyArrayListTest {
 
         assertTrue(list.isEmpty());
     }
+    
+    @Test
+    void testIndexOf() {
+        MyArrayList<String> list = new MyArrayList<>();
+
+        list.add("zzz");
+        list.add("xxx");
+        list.add("yyy");
+        list.add("qqq");
+        list.add("qqq");
+
+
+        assertEquals(1, list.indexOf("xxx"));
+        assertEquals(3, list.indexOf("qqq"));
+    }
 }
