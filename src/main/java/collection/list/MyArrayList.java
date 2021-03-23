@@ -60,7 +60,7 @@ public class MyArrayList<T> {
      *   4. 마지막 데이터는 지운다.
      * */
     public void remove(T removeObject) {
-        int resultIndex = isEquals(removeObject);
+        int resultIndex = indexOf(removeObject);
         if (resultIndex != -1) {
             realRemove(resultIndex);
         }
@@ -72,7 +72,7 @@ public class MyArrayList<T> {
     }
 
     public boolean contains(T findObject) {
-        return isEquals(findObject) == -1 ? false : true;
+        return indexOf(findObject) == -1 ? false : true;
     }
 
     public void clear() {
@@ -89,7 +89,7 @@ public class MyArrayList<T> {
         }
     }
 
-    private int isEquals(T targetObject) {
+    public int indexOf(T targetObject) {
         for (int i = 0; i < this.data.length; i++) {
             if (targetObject.equals(this.data[i])) {
                 return i;
@@ -108,9 +108,5 @@ public class MyArrayList<T> {
 
     private void shift(int from, int to) {
         System.arraycopy(this.data, from, this.data, to, this.size);
-    }
-
-    public int indexOf(T xxx) {
-        return 0;
     }
 }
